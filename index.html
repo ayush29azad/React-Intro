@@ -18,12 +18,18 @@ class App extends React.Component {
     name:'Ayush',
     age:'29'
   }
-handleClick(e){
-console.log(e.target);
+handleClick= (e)=> {   // rember that this state can be accesed only by arroe fun.
+  this.setState({
+     name:'kushi',
+     age :'25'
+  })
+console.log(this.state);
   }
   handleMouseOver(e){
 console.log(e.target,e.pageX);
   }
+
+
 render() {
     return (
     <div className ="app-content">
