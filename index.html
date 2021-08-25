@@ -18,27 +18,27 @@ class App extends React.Component {
     name:'Ayush',
     age:'29'
   }
-handleClick= (e)=> {   // rember that this state can be accesed only by arroe fun.
+handleChange=(e)=> {   // rember that this state can be accesed only by arroe fun.
   this.setState({
-     name:'kushi',
-     age :'25'
-  })
-console.log(this.state);
-  }
-  handleMouseOver(e){
-console.log(e.target,e.pageX);
-  }
+     name:e.target.value
+  });
+}
+handleSubmit = (e)=>{
+  e.preventDefault();  // prevent page to refresh when we submit form
+console.log('form submitted',this.state.name);
+}
+
 
 
 render() {
     return (
     <div className ="app-content">
-      <h1> Hey Ninjas </h1>
-      <p>My name is :{this.state.name} and my age is :{this.state.age}</p>
-      <button onClick={this.handleClick}> Click Me </button>
-      <p>
-      <button onMouseOver={this.handleMouseOver}> Click Me </button>
-      </p>
+      <h1>My name is :{this.state.name} and my age is :{this.state.age}</h1>
+        <form onSubmit={this.handleSubmit}>
+        <input type="text" onChange={this.handleChange} />
+        <button>Submit</button>
+        </form>
+      
       </div>
     )
 }
